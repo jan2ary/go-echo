@@ -1,11 +1,10 @@
-FROM golang:alpine
+FROM golang:latest
 
 WORKDIR /go/src/app
 
 COPY . .
 
-RUN apk add --no-cache git \
-    && go get -d -v ./... \
-    && go install -v ./...
+RUN go get -d -v ./...
+RUN go install -v ./...
 
 CMD ["echo"]
