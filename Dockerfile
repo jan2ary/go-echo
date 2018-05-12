@@ -4,8 +4,8 @@ WORKDIR /go/src/app
 
 COPY . .
 
-RUN go get -d -v ./...
-RUN go install -v ./...
-
+RUN apk add --no-cache git \
+    && go get -d -v ./... \
+    && go install -v ./...
 
 CMD ["echo"]
