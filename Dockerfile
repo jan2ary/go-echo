@@ -1,4 +1,4 @@
-FROM golang:latest
+FROM golang:latest as builder
 
 WORKDIR /go/src/app/
 
@@ -10,5 +10,5 @@ RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
 FROM alpine:latest
 
 WORKDIR /root/
-COPY --from=0 /go/src/app/app .
+COPY --from=builder /go/src/app/app .
 CMD ["./app"]
