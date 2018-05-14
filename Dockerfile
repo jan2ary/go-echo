@@ -11,4 +11,5 @@ FROM alpine:latest
 
 WORKDIR /root/
 COPY --from=builder /go/src/app/app .
+EXPOSE 9000
 CMD ["./app"]
