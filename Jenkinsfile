@@ -12,6 +12,6 @@ node {
         }
     }
     stage ('Deliver') {
-       customImage.push('latest')
+        docker.image("jan3ary/rot13:${env.BUILD_ID}").tag('latest')
     }
 }
