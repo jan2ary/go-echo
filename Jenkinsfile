@@ -11,4 +11,7 @@ node {
             sh "echo '0123456789XYZABC!@#\$%^&*()_+' | nc -N ${host} ${port} | grep -q '^=>?@ABCDEFklmnop.M012k3756l8\$'"
         }
     }
+    stage ('Deliver') {
+       customImage.push('latest')
+    }
 }
